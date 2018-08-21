@@ -56,6 +56,7 @@ public class Messages extends CommandExecute implements CommandExecutor, Listene
 		if (cmd.getName().equalsIgnoreCase(replyCmd)) {
 			if (!(lastMessage.get(p) != null)) {
 				lastMessage.put(p, p);
+				
 			}
 			sendPrivateMessage(p, lastMessage.get(p), String.join(" ", args));
 			return true;
