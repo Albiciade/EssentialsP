@@ -1,0 +1,29 @@
+name: EssentialsP
+author: Alcibiade
+main: me.alcibiade.essentialsp.EssentialsP
+version: 1.0
+description: Commandes essentielles
+
+commands:
+   spawn:
+      usage: /spawn
+   setspawn:
+      usage: /setspawn
+   message:
+      usage: /message <player> <text>
+      aliases:
+         [msg, tell, t, whisper, wh, m]
+   reply:
+      usage: /reply <message>
+      aliases:
+         [r, rep]
+   check:
+      usage: /check
+   warp:
+      usage: /warp <warp>
+   warps:
+      usage: /warps
+   setwarp:
+      usage: /setwarp
+   delwarp:
+      usage: /delwarp
