@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.alcibiade.essentialsp.Commands.AdminCheck;
 import me.alcibiade.essentialsp.Commands.Messages;
 import me.alcibiade.essentialsp.Commands.Spawn;
+import me.alcibiade.essentialsp.Commands.Teleport;
 import me.alcibiade.essentialsp.Commands.Warps;
 import me.alcibiade.essentialsp.Configurations.PlayersConfiguration;
 import me.alcibiade.essentialsp.Events.EventsClass;
@@ -45,7 +46,7 @@ public class EssentialsP extends JavaPlugin {
 			getConfig().addDefault("Location.spawn.x", 0);
 			getConfig().addDefault("Location.spawn.y", 0);
 			getConfig().addDefault("Location.spawn.z", 0);
-			// getConfig().options().copyDefaults(true);
+			getConfig().options().copyDefaults(true);
 			saveConfig();
 			reloadConfig();
 		}
@@ -61,7 +62,10 @@ public class EssentialsP extends JavaPlugin {
 		getCommand(warpsCmds.warpsCmd).setExecutor(warpsCmds);
 		getCommand(warpsCmds.setWarpCmd).setExecutor(warpsCmds);
 		getCommand(warpsCmds.delWarpCmd).setExecutor(warpsCmds);
-
+		getCommand(new Teleport().tpReqCmd).setExecutor(new Teleport());
+		getCommand(new Teleport().tpAccCmd).setExecutor(new Teleport());
+		getCommand(new Teleport().tpDenCmd).setExecutor(new Teleport());
+		
 	}
 	
 	public void loadPlayers() {

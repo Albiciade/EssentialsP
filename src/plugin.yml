@@ -9,6 +9,7 @@ commands:
       usage: /spawn
    setspawn:
       usage: /setspawn
+      
    message:
       usage: /message <player> <text>
       aliases:
@@ -17,13 +18,24 @@ commands:
       usage: /reply <message>
       aliases:
          [r, rep]
+         
    check:
       usage: /check
+      
    warp:
       usage: /warp <warp>
    warps:
       usage: /warps
    setwarp:
-      usage: /setwarp
+      usage: /setwarp <warp>
    delwarp:
-      usage: /delwarp
+      usage: /delwarp <warp>
+      
+   tpa:
+      usage: /tpa <player>
+   tpaccept:
+      usage: /tpaccept
+      aliases: tpyes
+   tpdeny:
+      usage: /tpdeny
+      aliases: tpno
