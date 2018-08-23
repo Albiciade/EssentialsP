@@ -89,9 +89,29 @@ public class Teleport extends CommandExecute implements CommandExecutor, Listene
 
 			if (cmd.getName().equalsIgnoreCase(tpDenCmd)) {
 
-				p.sendMessage(teleportMap.toString());
-				p.sendMessage(teleportTimeMap.toString());
-				return true;
+				if (teleportMap.containsKey(p)) {
+
+					if (System.currentTimeMillis() / 1000 - teleportTimeMap.get(p) / 1000 < requestDuration) {
+						p.sendMessage(ChatColor.RED + "Vous avez refusé la requête de " + ChatColor.YELLOW
+								+ teleportMap.get(p).getName());
+						teleportMap.get(p).sendMessage(ChatColor.YELLOW + p.getName() + ChatColor.RED
+								+ " a refusé votre requête de téléportation.");
+						Location loc = p.getLocation();
+						teleportMap.get(p).teleport(loc);
+
+						teleportMap.remove(p);
+						teleportTimeMap.remove(p);
+
+						return true;
+					} else {
+						p.sendMessage(ChatColor.RED + "Vous n'avez aucune requête de téléportation en attente.");
+						return true;
+					}
+
+				} else {
+					p.sendMessage(ChatColor.RED + "Vous n'avez aucune requête de téléportation en attente.");
+					return true;
+				}
 			}
 
 		} else {
