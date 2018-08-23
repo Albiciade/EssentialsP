@@ -96,8 +96,6 @@ public class Teleport extends CommandExecute implements CommandExecutor, Listene
 								+ teleportMap.get(p).getName());
 						teleportMap.get(p).sendMessage(ChatColor.YELLOW + p.getName() + ChatColor.RED
 								+ " a refusé votre requête de téléportation.");
-						Location loc = p.getLocation();
-						teleportMap.get(p).teleport(loc);
 
 						teleportMap.remove(p);
 						teleportTimeMap.remove(p);
